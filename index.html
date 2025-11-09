@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows系统官方下载站</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0078d4',
+                        secondary: '#e6e6e6',
+                        dark: '#1a1a1a',
+                        light: '#f8f9fa',
+                        accent: '#00a8e8'
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+            .text-shadow {
+                text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .btn-hover-effect:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(0, 120, 212, 0.2);
+            }
+            .card-hover-effect:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-windows text-primary text-3xl"></i>
+                <span class="text-xl font-bold text-dark">Windows系统官方下载</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-700 hover:text-primary transition-colors">首页</a>
+                <a href="#download" class="text-gray-700 hover:text-primary transition-colors">系统下载</a>
+                <a href="#compare" class="text-gray-700 hover:text-primary transition-colors">版本对比</a>
+                <a href="#announcement" class="text-gray-700 hover:text-primary transition-colors">站长公告</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-primary transition-colors py-2">首页</a>
+                <a href="#download" class="text-gray-700 hover:text-primary transition-colors py-2">系统下载</a>
+                <a href="#compare" class="text-gray-700 hover:text-primary transition-colors py-2">版本对比</a>
+                <a href="#announcement" class="text-gray-700 hover:text-primary transition-colors py-2">站长公告</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4 text-shadow">获取正版Windows系统</h1>
+                    <p class="text-lg md:text-xl mb-6 opacity-90">直接从微软官方下载，安全可靠，避免第三方陷阱</p>
+                    <a href="#download" class="bg-white text-primary font-semibold px-6 py-3 rounded-lg inline-block transition-all duration-300 btn-hover-effect">
+                        立即下载 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/0/600/400" alt="Windows系统展示" class="rounded-lg shadow-2xl">
+                        <div class="absolute -bottom-4 -right-4 bg-white text-primary p-4 rounded-lg shadow-lg">
+                            <span class="font-bold">100% 官方正版</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系统下载区域 -->
+    <section id="download" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">选择您需要的Windows版本</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Windows 11 下载卡片 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover-effect" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/1/600/300" alt="Windows 11" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-semibold px-3 py-1 rounded-full">
+                            最新版本
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://p3-doubao-search-sign.byteimg.com/pgc-image/02033a2720d846f4a2b51673385d2999~tplv-be4g95zd3a-image.image" alt="Windows 11 Logo" class="w-10 h-10 mr-3">
+                            <h3 class="text-2xl font-bold text-gray-800">Windows 11</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Windows 11 带来全新的用户界面和增强的安全性，为您的设备提供现代化体验。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">全新UI</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">增强安全</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">优化性能</span>
+                        </div>
+                        <a href="https://www.microsoft.com/zh-cn/software-download/windows11" target="_blank" class="block w-full bg-primary hover:bg-blue-700 text-white font-semibold text-center py-3 rounded-lg transition-colors duration-300">
+                            <i class="fa fa-download mr-2"></i> 官方下载
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Windows 10 下载卡片 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover-effect" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://picsum.photos/id/2/600/300" alt="Windows 10" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4 bg-gray-600 text-white text-sm font-semibold px-3 py-1 rounded-full">
+                            稳定版本
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://p3-doubao-search-sign.byteimg.com/labis/920019219b3008499f2267d611494319~tplv-be4g95zd3a-image.image" alt="Windows 10 Logo" class="w-10 h-10 mr-3">
+                            <h3 class="text-2xl font-bold text-gray-800">Windows 10</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Windows 10 提供稳定可靠的性能和广泛的硬件兼容性，是企业和个人用户的理想选择。</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">稳定可靠</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">广泛兼容</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">长期支持</span>
+                        </div>
+                        <a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank" class="block w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold text-center py-3 rounded-lg transition-colors duration-300">
+                            <i class="fa fa-download mr-2"></i> 官方下载
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 安全提示 -->
+            <div class="mt-12 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg" data-aos="fade-up">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fa fa-exclamation-triangle text-yellow-400 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-lg font-medium text-yellow-800">安全提示</h3>
+                        <p class="text-yellow-700 mt-1">请始终从官方渠道下载Windows系统，避免使用第三方网站或"XX重装大师"等工具提供的下载链接，以防恶意软件感染、强制收费和桌面水印等问题。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 版本对比区域 -->
+    <section id="compare" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Windows版本对比</h2>
+            
+            <div class="overflow-x-auto" data-aos="fade-up">
+                <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-4 px-6 text-left text-sm font-semibold text-gray-700">功能特性</th>
+                            <th class="py-4 px-6 text-center text-sm font-semibold text-blue-700">
+                                <div class="flex items-center justify-center">
+                                    <img src="https://p3-doubao-search-sign.byteimg.com/pgc-image/02033a2720d846f4a2b51673385d2999~tplv-be4g95zd3a-image.image" alt="Windows 11 Logo" class="w-6 h-6 mr-2">
+                                    Windows 11<br>家庭版/专业版
+                                </div>
+                            </th>
+                            <th class="py-4 px-6 text-center text-sm font-semibold text-blue-700">
+                                <div class="flex items-center justify-center">
+                                    <img src="https://p3-doubao-search-sign.byteimg.com/labis/920019219b3008499f2267d611494319~tplv-be4g95zd3a-image.image" alt="Windows 10 Logo" class="w-6 h-6 mr-2">
+                                    Windows 10<br>Home/Pro
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 text-sm text-gray-700 font-medium">用户界面</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">全新设计，居中任务栏</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">经典设计，左侧任务栏</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 text-sm text-gray-700 font-medium">系统要求</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">较高（需要TPM 2.0）</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">适中（兼容性更广）</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 text-sm text-gray-700 font-medium">性能优化</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">更好的内存管理和响应速度</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">稳定可靠，资源占用适中</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 text-sm text-gray-700 font-medium">安全性</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">增强型安全功能</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">完善的安全体系</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 text-sm text-gray-700 font-medium">应用兼容性</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">良好，持续优化</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">极佳，广泛支持</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 text-sm text-gray-700 font-medium">更新支持</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">现在仍继续支持，截至日期未公布</td>
+                            <td class="py-4 px-6 text-center text-sm text-gray-600">
+                                <span class="line-through text-red-500">2015年7月29日-2025年10月14日</span><br>
+                                <span class="text-red-500 font-medium">已停止支持</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center" data-aos="fade-up">
+                <p class="text-gray-600 mb-4">不确定选择哪个版本？</p>
+                <button id="show-recommendation" class="bg-primary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">
+                    获取个性化推荐 <i class="fa fa-lightbulb-o ml-2"></i>
+                </button>
+            </div>
+            
+            <!-- 推荐弹窗 -->
+            <div id="recommendation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                <div class="bg-white rounded-xl shadow-xl p-6 max-w-md w-full mx-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Windows版本推荐</h3>
+                        <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                            <i class="fa fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">您的设备购买时间</label>
+                        <select id="device-age" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">请选择</option>
+                            <option value="new">1年内</option>
+                            <option value="medium">1-3年</option>
+                            <option value="old">3年以上</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">主要用途</label>
+                        <select id="usage" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="">请选择</option>
+                            <option value="daily">日常办公/娱乐</option>
+                            <option value="gaming">游戏</option>
+                            <option value="design">设计/创作</option>
+                            <option value="business">企业/商业用途</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">对新功能的追求程度</label>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-600 mr-2">保守</span>
+                            <input type="range" id="innovation" min="1" max="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <span class="text-sm text-gray-600 ml-2">激进</span>
+                        </div>
+                    </div>
+                    <button id="get-recommendation" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition-colors duration-300">
+                        获取推荐
+                    </button>
+                    <div id="recommendation-result" class="mt-4 hidden">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-blue-800 mb-2">我们的推荐</h4>
+                            <p id="recommendation-text" class="text-blue-700"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 站长公告区域 -->
+    <section id="announcement" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <div class="flex items-center justify-center mb-8">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary text-2xl">
+                        <i class="fa fa-bullhorn"></i>
+                    </div>
+                </div>
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">站长公告</h2>
+                <div class="bg-blue-50 rounded-xl p-8 shadow-md border border-blue-100">
+                    <div class="flex items-start mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 mt-1">
+                            站
+                        </div>
+                        <div class="text-gray-700 space-y-4 text-lg">
+                            <p>大家好呀！我是本站的站长，目前还是一名初一学生～ 因为平时发现很多人想装Windows系统，却总被第三方重装软件坑，要么弹窗收费，要么强制加水印，特别影响使用体验，所以就做了这个简单的网站。</p>
+                            
+                            <p>本站不提供任何破解版、修改版系统，也没有复杂的额外功能，只专注于提供直达微软官网的正版Windows系统下载链接，不管是Windows 11还是Windows 10，点击就能跳转到官方页面，安全又省心，再也不用担心遇到流氓软件啦！</p>
+                            
+                            <p>后续我会利用课余时间整理Windows系统的PPKG预配包，里面会包含实用的基础设置和常用配置，方便大家装完系统后快速上手。大家可以提前准备好U盘，后续获取预配包后直接导入就能使用～</p>
+                            
+                            <p>另外，我还会筛选一款安全好用的镜像写盘工具推荐给大家，帮大家解决“下载完镜像不知道怎么装到U盘”的难题，具体工具后续会在站内更新，记得常来看看呀！</p>
+                            
+                            <p>如果大家使用过程中遇到跳转问题，或者有其他想了解的内容，都可以在下方留言告诉我，我会尽力完善这个网站，希望能帮到更多需要装正版Windows系统的朋友～</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 留言区域 -->
+                    <div class="mt-10 pt-6 border-t border-blue-100">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">留言反馈</h3>
+                        <form id="feedback-form" class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-2">您的称呼</label>
+                                <input type="text" id="feedback-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-medium mb-2">您的留言</label>
+                                <textarea id="feedback-content" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required placeholder="可以说说您遇到的问题或建议..."></textarea>
+                            </div>
+                            <button type="submit" class="bg-primary hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">
+                                提交留言 <i class="fa fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 安全下载提示 -->
+    <section class="py-12 bg-gradient-to-r from-blue-800 to-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-2/3 mb-6 md:mb-0" data-aos="fade-right">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">安全下载，保护您的设备</h2>
+                    <p class="text-lg opacity-90">始终从官方渠道下载Windows系统，避免使用第三方网站提供的下载链接，保护您的设备免受恶意软件和病毒的侵害。</p>
+                </div>
+                <div data-aos="fade-left">
+                    <a href="#download" class="bg-white text-primary font-semibold px-6 py-3 rounded-lg inline-block transition-all duration-300 btn-hover-effect">
+                        安全下载 <i class="fa fa-shield mr-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">关于本站</h3>
+                    <p class="text-gray-400">由初一学生制作的Windows系统官方下载导航站，致力于提供安全、可靠的正版系统下载入口，帮助用户远离第三方软件陷阱。</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#download" class="text-gray-400 hover:text-white transition-colors">系统下载</a></li>
+                        <li><a href="#compare" class="text-gray-400 hover:text-white transition-colors">版本对比</a></li>
+                        <li><a href="#announcement" class="text-gray-400 hover:text-white transition-colors">站长公告</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">微软官方</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="https://www.microsoft.com/zh-cn/software-download/windows11" target="_blank" class="text-gray-400 hover:text-white transition-colors flex items-center">
+                                <i class="fa fa-windows mr-2"></i> Windows 11 官方下载
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank" class="text-gray-400 hover:text-white transition-colors flex items-center">
+                                <i class="fa fa-windows mr-2"></i> Windows 10 官方下载
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-qq text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2025 Windows系统官方下载导航站. 本站仅提供官方下载链接，与Microsoft Corporation无直接关联。</p>
+                <p class="mt-2 text-sm">Windows是Microsoft Corporation在美国和其他国家/地区的注册商标。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-40">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 初始化AOS动画库
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+            
+            // 移动端菜单切换
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // 返回顶部按钮
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 版本推荐功能
+            const showRecommendationBtn = document.getElementById('show-recommendation');
+            const recommendationModal = document.getElementById('recommendation-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const getRecommendationBtn = document.getElementById('get-recommendation');
+            const recommendationResult = document.getElementById('recommendation-result');
+            const recommendationText = document.getElementById('recommendation-text');
+            
+            showRecommendationBtn.addEventListener('click', function() {
+                recommendationModal.classList.remove('hidden');
+            });
+            
+            closeModalBtn.addEventListener('click', function() {
+                recommendationModal.classList.add('hidden');
+            });
+            
+            getRecommendationBtn.addEventListener('click', function() {
+                const deviceAge = document.getElementById('device-age').value;
+                const usage = document.getElementById('usage').value;
+                const innovation = document.getElementById('innovation').value;
+                
+                if (!deviceAge || !usage) {
+                    alert('请填写完整信息');
+                    return;
+                }
+                
+                let recommendation = '';
+                
+                // 根据用户选择生成推荐
+                if (deviceAge === 'new' && innovation >= 3) {
+                    recommendation = '推荐升级到Windows 11，您的设备符合系统要求，并且您对新功能有较高需求。Windows 11的全新界面和增强性能将为您带来更好的体验。';
+                } else if (deviceAge === 'medium' && (usage === 'gaming' || usage === 'design')) {
+                    recommendation = '推荐使用Windows 11，它针对游戏和设计工作进行了优化，能更好地发挥您设备的性能。';
+                } else if (deviceAge === 'old' || usage === 'business') {
+                    recommendation = '推荐继续使用Windows 10，它具有更广泛的硬件兼容性和更成熟的企业级应用支持，更适合您的需求。';
+                } else {
+                    recommendation = 'Windows 10和Windows 11都是不错的选择。如果您喜欢稳定可靠的系统，选择Windows 10；如果您想体验最新功能，选择Windows 11。';
+                }
+                
+                recommendationText.textContent = recommendation;
+                recommendationResult.classList.remove('hidden');
+            });
+            
+            // 留言反馈功能
+            const feedbackForm = document.getElementById('feedback-form');
+            
+            feedbackForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('feedback-name').value;
+                const content = document.getElementById('feedback-content').value;
+                
+                if (!name || !content) {
+                    alert('请填写完整留言信息');
+                    return;
+                }
+                
+                // 模拟提交成功
+                alert(`感谢${name}的留言！您的反馈已收到，我会尽快回复您～`);
+                feedbackForm.reset();
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // 如果是移动端，点击后关闭菜单
+                        if (window.innerWidth < 768) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
